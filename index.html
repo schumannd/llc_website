@@ -178,8 +178,12 @@
             For inquiries across solar, storage, or custom IT engagements, reach
             out by email.
           </p>
-          <a class="btn btn--primary" href="mailto:contact@davidschumannllc.com"
-            >contact@davidschumannllc.com</a
+          <a
+            class="btn btn--primary obf-mail"
+            data-mail-b64="ZGF2aWRAc2NodW1hbm4uY29tLmRl"
+            data-show-label
+            href="#"
+            >&#8230;</a
           >
         </div>
       </section>
@@ -198,7 +202,13 @@
           </p>
           <p class="legal-notice__contact">
             <a href="https://davidschumannllc.com/">davidschumannllc.com</a><br />
-            <a href="mailto:contact@davidschumannllc.com">contact@davidschumannllc.com</a>
+            <a
+              class="obf-mail"
+              data-mail-b64="ZGF2aWRAc2NodW1hbm4uY29tLmRl"
+              data-show-label
+              href="#"
+              >&#8230;</a
+            >
           </p>
         </div>
       </section>
@@ -207,13 +217,29 @@
     <footer class="site-footer">
       <p>
         © <span id="year"></span> David Schumann LLC ·
-        <a href="mailto:contact@davidschumannllc.com">Email</a>
+        <a class="obf-mail" data-mail-b64="ZGF2aWRAc2NodW1hbm4uY29tLmRl" href="#"
+          >Email</a
+        >
         ·
         <a href="#legal-notice">Legal notice</a>
       </p>
     </footer>
 
     <script>
+      document.querySelectorAll(".obf-mail").forEach(function (el) {
+        var b64 = el.getAttribute("data-mail-b64");
+        if (!b64) return;
+        try {
+          var addr = atob(b64);
+          el.setAttribute("href", "mailto:" + addr);
+          if (el.hasAttribute("data-show-label")) {
+            el.textContent = addr;
+          }
+          el.removeAttribute("data-mail-b64");
+        } catch (e) {
+          /* ignore */
+        }
+      });
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>
   </body>

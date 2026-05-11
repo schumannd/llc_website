@@ -36,6 +36,11 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
   margin: 0;
   font-family: var(--font-body);
   font-size: 1.0625rem;
@@ -362,7 +367,11 @@ a:hover {
   text-align: center;
 }
 
-.site-footer {
+.legal-notice {
+  padding-bottom: clamp(5rem, 12vw, 8rem);
+}
+
+.legal-notice__card {
   max-width: 780px;
   margin: 0 auto;
   padding: clamp(2rem, 4vw, 2.75rem);

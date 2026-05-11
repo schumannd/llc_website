@@ -30,7 +30,7 @@ Then visit `http://localhost:8080`.
 Create a new repository (for example `llc_website`), then:
 
 ```bash
-git add index.html styles.css README.md
+git add index.html styles.css README.md CNAME favicon.svg
 git commit -m "Add David Schumann LLC one-pager"
 git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO.git
 git push -u origin main
@@ -112,3 +112,4 @@ Match whatever you entered under **Custom domain** in GitHub.
 | ----------- | -------------------------------- |
 | `index.html`| Structure and copy               |
 | `styles.css`| Layout, typography, theme        |
+| `favicon.svg` | Tab icon (simple SVG mark)    |
