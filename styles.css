@@ -18,11 +18,24 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .section__image-wrap img {
+    transition: none;
+  }
+
+  .section__image-wrap:hover img {
+    transform: none;
+  }
+
+  .btn {
+    transition: none;
+  }
 }
 
-body {
   margin: 0;
   font-family: var(--font-body);
   font-size: 1.0625rem;
@@ -313,11 +326,43 @@ a:hover {
   margin-top: 1rem;
 }
 
-.legal-notice {
-  padding-bottom: clamp(5rem, 12vw, 8rem);
+.section--contact {
+  padding-top: clamp(3rem, 8vw, 4.5rem);
+  padding-bottom: clamp(3rem, 8vw, 4.5rem);
 }
 
-.legal-notice__card {
+.contact-panel {
+  max-width: 36rem;
+  margin: 0 auto;
+  text-align: center;
+  padding: clamp(2rem, 5vw, 2.75rem);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+.contact-panel h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  margin: 0 0 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.contact-panel__lead {
+  margin: 0 0 1.5rem;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.contact-panel .btn {
+  word-break: break-word;
+  max-width: 100%;
+  text-align: center;
+}
+
+.site-footer {
   max-width: 780px;
   margin: 0 auto;
   padding: clamp(2rem, 4vw, 2.75rem);
